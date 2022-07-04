@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!!!");
-Console.WriteLine("Just to test opa opa!");
+using Algorytms;
+
+Console.WriteLine(ArraysAndStrings.Task_1_5("test","testt"));
 
