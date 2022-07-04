@@ -6,7 +6,47 @@ namespace Algorytms
     public static class ArraysAndStrings
     {
 
+        /// <summary>
+        /// Rotate array on 90 degree
+        /// </summary>
+        /// <param name="image"></param>
+        /// <returns></returns>
+        public static void task_1_7(int[,] image)
+        {
+			int n = image.GetLength(0);
+			for (int i = 0; i < n / 2; i++)///
+			{
+				int last = n - i - 1;
+				for(int j = i; j < last; j++)
+                {
+					int top = image[i,j];
 
+					//first elemnt change to bottom left
+					image[i, j] = image[last - (j - i), i];
+
+					//bottom left
+					image[last - (j - i), i] = image[last,last - (j - i)];
+
+					//botom right
+					image[last, last - (j - i)] = image[j,last];
+
+					//top right
+					image[j,last] = top;
+                }
+
+				Console.WriteLine("\n");
+			}
+        }
+
+        public static void Task_1_7_PrintArray(int[,] array)
+        {
+			for(int i=0;i<array.GetLength(0);i++)
+            {
+				for (int j = 0; j < array.GetLength(1); j++)
+					Console.Write(array[i, j].ToString() + "\t");
+				Console.WriteLine("\n");
+            }
+        }
 
 		/// <summary>
 		/// находится ли строка на растоянии 1ой модификации или нуля от заданной
@@ -41,7 +81,7 @@ namespace Algorytms
 			}
 		}
 
-		public static bool Task_1_5_EquilIfDelete(string str1, string str2)
+		static bool Task_1_5_EquilIfDelete(string str1, string str2)
 		{
 			for (int i = 0; i < str1.Length; i++)
 			{
